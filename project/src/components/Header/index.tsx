@@ -8,7 +8,7 @@ export function Header() {
 
             <Content>
                 <span>
-                   <MapPin size={20} className='icon'/>
+                   <MapPin size={20} weight='fill' className='icon'/>
                    Petrolina, PE 
                 </span>
                 <button>

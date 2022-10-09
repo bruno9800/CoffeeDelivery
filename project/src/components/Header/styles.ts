@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 
 export const Container = styled.header`
-    max-width: 1152px; /* 1120 + ( 16 + 16 ) = 1152 */
+    max-width: 1152px;
     margin: 0 auto;
-    padding: 2rem 1rem; /* 16 + 16 */
+    padding: 2rem 0rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

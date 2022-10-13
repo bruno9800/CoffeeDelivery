@@ -97,6 +97,10 @@ export const CounterItem = styled.div`
         color: ${props => props.theme.purple};
         line-height: 1;
         cursor: pointer;
+
+        &:disabled {
+            color: ${props => props.theme["base-title"]};
+        }
     }
 `
 

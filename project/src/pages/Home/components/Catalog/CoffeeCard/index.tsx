@@ -1,36 +1,52 @@
 import { AddCardStyled, Card, CardContent, CounterItem } from "./styles";
 
-import coffee from '../../../../../assets/coffees/Type=Americano.png'
+
 import { Plus, Minus, ShoppingCartSimple } from 'phosphor-react'
 
-export function CoffeeCard() {
+
+import { CoffeeProps } from "../../../../../utils/coffees";
+import { useState } from "react";
+
+export function CoffeeCard({imgSrc, description, name, price, tags}:CoffeeProps) {
+    const [quantAddToCar, setQuantAddToCar] = useState(1);
+
+    function handleAddQuant(){
+        setQuantAddToCar(state => state+1);
+    }
+    function handleReduceQuant() {
+        setQuantAddToCar(state => state-1);
+    }
+
     return (
         <Card>
             <CardContent>
-                <img src={coffee} alt="" />
+                <img src={`/coffees/Type=${imgSrc}.png`} alt="" />
                 <div className="tags">
-                    <span>TRADICIONAL</span>
-                    <span>TRADICIONAL</span>
+                    {tags.map( tag => {
+                        return (
+                            <span key={tag}>{tag.toUpperCase()}</span>
+                        )
+                    })}
                 </div>
-                <h2>Expresso Tradicional</h2>
-                <p>O tradicional café feioto com água quente e grão moidos</p>
+                <h2>{name}</h2>
+                <p>{description}</p>
 
                  
                 <footer>
                     <div className="value">
                         <span>R$</span>
-                        <strong>9,90</strong>
+                        <strong>{String(price).padEnd(4, '0')}</strong>
                     </div>
                     <div className="options">
                         <CounterItem>
-                            <button>
+                            <button onClick={handleReduceQuant} disabled={quantAddToCar===1}>
                                 <Minus 
                                     size={14}
                                     weight='bold'
                                 />
                             </button>
-                            <span>1</span>
-                            <button>
+                            <span>{quantAddToCar}</span>
+                            <button onClick={handleAddQuant}>
                                 <Plus 
                                     size={14}
                                     weight='bold'

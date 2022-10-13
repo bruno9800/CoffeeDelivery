@@ -1,6 +1,7 @@
 import { CoffeeCard } from "./CoffeeCard";
 import { Container, Content } from "./styles";
 
+import { coffees } from "../../../../utils/coffees";
 
 
 export function Catalog() {
@@ -8,12 +9,19 @@ export function Catalog() {
         <Container>
             <strong>Nossos cafés</strong>
             <Content>
-                <CoffeeCard />
-                <CoffeeCard />
-                <CoffeeCard />
-                <CoffeeCard />
-                <CoffeeCard />
-                <CoffeeCard />
+                {coffees.map( coffee => {
+                    return (
+                        <CoffeeCard 
+                            key={coffee.id}
+                            description={coffee.description}
+                            imgSrc={coffee.imgSrc}
+                            name={coffee.name}
+                            price={coffee.price}
+                            tags={coffee.tags}
+                            id={coffee.id}
+                        />
+                    )
+                })}
             </Content>
         </Container>
     )

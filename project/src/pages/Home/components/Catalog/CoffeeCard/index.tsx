@@ -1,13 +1,13 @@
-import { AddCardStyled, Card, CardContent, CounterItem } from "./styles";
-
-
-import { Plus, Minus, ShoppingCartSimple } from 'phosphor-react'
-
-
+import { useContext, useState } from "react";
 import { CoffeeProps } from "../../../../../utils/coffees";
-import { useState } from "react";
 
-export function CoffeeCard({imgSrc, description, name, price, tags}:CoffeeProps) {
+
+import { AddCardStyled, Card, CardContent, CounterItem } from "./styles";
+import { Plus, Minus, ShoppingCartSimple } from 'phosphor-react'
+import { CartContext } from "../../../../../context/CartContext";
+
+export function CoffeeCard(props:CoffeeProps) {
+    const { AddProductToCart } = useContext(CartContext)
     const [quantAddToCar, setQuantAddToCar] = useState(1);
 
     function handleAddQuant(){
@@ -16,6 +16,16 @@ export function CoffeeCard({imgSrc, description, name, price, tags}:CoffeeProps)
     function handleReduceQuant() {
         setQuantAddToCar(state => state-1);
     }
+
+    function handleAddProductToCart() {
+        const ProductToAdd = {
+            ...props,
+            quant: quantAddToCar
+        }
+        AddProductToCart(ProductToAdd)
+    }
+
+    const {imgSrc, description, name, price, tags} = props;
 
     return (
         <Card>
@@ -35,7 +45,7 @@ export function CoffeeCard({imgSrc, description, name, price, tags}:CoffeeProps)
                 <footer>
                     <div className="value">
                         <span>R$</span>
-                        <strong>{String(price).padEnd(4, '0')}</strong>
+                        <strong>{String((price*quantAddToCar).toFixed(2))}</strong>
                     </div>
                     <div className="options">
                         <CounterItem>
@@ -46,7 +56,7 @@ export function CoffeeCard({imgSrc, description, name, price, tags}:CoffeeProps)
                                 />
                             </button>
                             <span>{quantAddToCar}</span>
-                            <button onClick={handleAddQuant}>
+                            <button onClick={handleAddQuant} disabled={quantAddToCar===10}>
                                 <Plus 
                                     size={14}
                                     weight='bold'
@@ -54,7 +64,7 @@ export function CoffeeCard({imgSrc, description, name, price, tags}:CoffeeProps)
                             </button>
                         </CounterItem>
 
-                        <AddCardStyled>
+                        <AddCardStyled onClick={handleAddProductToCart}>
                             <ShoppingCartSimple size={20} weight='fill'/>
                         </AddCardStyled>
                     </div>

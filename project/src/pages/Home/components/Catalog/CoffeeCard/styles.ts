@@ -104,11 +104,15 @@ export const CounterItem = styled.div`
     }
 `
 
-export const AddCardStyled = styled.div`
+export const AddCardStyled = styled.button`
     background-color: ${props => props.theme["purple-dark"]};
     color: ${props => props.theme.white};
     padding: 0.5rem;
     border-radius: 6px;
+    border: 0;
+    outline: none;
+    line-height: 1;
+    cursor: pointer;
 
     transition: .1s;
     &:hover {

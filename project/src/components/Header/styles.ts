@@ -38,7 +38,7 @@ export const Content = styled.div`
         }
     }
 
-    button {
+    .button {
         position: relative;
         background: ${props => props.theme["yellow-light"]};
         color: ${props=> props.theme["yellow-dark"]};

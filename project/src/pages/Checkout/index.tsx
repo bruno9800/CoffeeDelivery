@@ -1,8 +1,13 @@
+import { FormAddress } from "./FormAddress";
+import { ContainerCheckout } from "./styles";
 
 export function Checkout() {
-    return (
-        <div>
-            <h1>Checkout</h1>
-        </div>
-    )
+	return (
+		<ContainerCheckout>
+			<FormAddress />
+			<aside>
+				<h1>Teste</h1>
+			</aside>
+		</ContainerCheckout>
+	);
 }

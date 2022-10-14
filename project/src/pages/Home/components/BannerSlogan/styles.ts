@@ -4,6 +4,7 @@ import { linearGradient, transparentize } from 'polished'
 
 
 export const BannerContainer = styled.div`
+    position: relative;
     padding: 5.75rem 0;
 
     .linear {
@@ -17,6 +18,7 @@ export const BannerContainer = styled.div`
 
 
 export const BannerContent = styled.div`
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,6 +28,22 @@ export const BannerContent = styled.div`
     colorStops: [ props.theme.background , transparentize(1, '#fff'),props.theme.background],
     toDirection: 'to right',
   })};
+
+    @media (max-width: 1080px) {
+        justify-content: end;
+        > div {
+            position: absolute;
+            max-width: 500px;
+
+            left: 0;
+        }
+
+        img {
+            align-self: flex-end;
+        }
+        
+    }
+
   
 `
 
@@ -52,6 +70,7 @@ export const SkillsContent = styled.div`
     grid-template-columns: 1fr 1fr;
     row-gap: 1.25rem;
     margin-top: 4.125rem;
+
 `
 
 

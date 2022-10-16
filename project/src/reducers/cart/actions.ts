@@ -50,7 +50,6 @@ export function deleteProductFromCartAction(id: string) {
 
 
 export function deleteAllProductsAction(){
-    console.log('deletar')
     return {
         type: ActionTypes.DELETE_ALL_PRODUCTS
     }

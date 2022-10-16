@@ -9,8 +9,6 @@ export interface CartStateType {
 export function cartReducer(state: CartStateType, action: any) {
     switch(action.type) {
         case(ActionTypes.ADD_PRODUCT):
-        console.log(action)
-        console.log(state)
             return {
                 ...state,
                 products: [ ...state.products ,action.payload.newProduct]
@@ -21,7 +19,6 @@ export function cartReducer(state: CartStateType, action: any) {
                 products: 
                     state.products.map( coffee => {
                     if(action.payload.id === coffee.id){
-                        console.log(coffee)
                         return {
                             ...coffee,
                             quant: coffee.quant + action.payload.quantToIncrement
@@ -50,7 +47,6 @@ export function cartReducer(state: CartStateType, action: any) {
                 ...state,
                 products: 
                     state.products.filter(coffee => {
-                        console.log('verifica')
                         return coffee.id != action.payload.id;
                     })
             }

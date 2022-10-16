@@ -32,8 +32,6 @@ export function Success() {
 				return "Pagamento a Vista";
 		}
 	};
-
-	console.log(data);
 	return (
 		<Container>
 			<Content>

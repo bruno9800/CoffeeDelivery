@@ -82,27 +82,27 @@ export const CardContent = styled.div`
 
 `
 
-export const CounterItem = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: ${props => props.theme["base-button"]};
-    display: flex;
-    border-radius: 6px;
-    padding: 0.5rem ;
+// export const CounterItem = styled.div`
+//     display: flex;
+//     align-items: center;
+//     gap: 0.5rem;
+//     background: ${props => props.theme["base-button"]};
+//     display: flex;
+//     border-radius: 6px;
+//     padding: 0.5rem ;
 
-    button {
-        background: transparent;
-        border: 0;
-        color: ${props => props.theme.purple};
-        line-height: 1;
-        cursor: pointer;
+//     button {
+//         background: transparent;
+//         border: 0;
+//         color: ${props => props.theme.purple};
+//         line-height: 1;
+//         cursor: pointer;
 
-        &:disabled {
-            color: ${props => props.theme["base-title"]};
-        }
-    }
-`
+//         &:disabled {
+//             color: ${props => props.theme["base-title"]};
+//         }
+//     }
+// `
 
 export const AddCardStyled = styled.button`
     background-color: ${props => props.theme["purple-dark"]};
@@ -118,5 +118,9 @@ export const AddCardStyled = styled.button`
     &:hover {
         background: ${props => props.theme.purple};
         color: ${props => props.theme["base-card"]};
+    }
+
+    &:active {
+        transform: scale(0.98);
     }
 `

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { Container, Content, ItemCar } from "./styles";
 
+import LogoImg from "../../assets/Logo.png";
+
 export function Header() {
 	const { products } = useContext(CartContext);
 	const HowMuchIsInTheCart = products.reduce((acc, acur) => {
@@ -12,7 +14,7 @@ export function Header() {
 	return (
 		<Container>
 			<Link to="/">
-				<img src="./logo.png" alt="" />
+				<img src={LogoImg} alt="" />
 			</Link>
 
 			<Content>

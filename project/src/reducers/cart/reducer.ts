@@ -31,6 +31,34 @@ export function cartReducer(state: CartStateType, action: any) {
                     }
                 })
             }
+        case(ActionTypes.DECREMENT_PRODUCT_BY_ID):
+            return {
+                ...state,
+                products:
+                    state.products.map(coffee => {
+                        if(action.payload.id === coffee.id){
+                            return {
+                                ...coffee,
+                                quant: coffee.quant - 1
+                            };
+                        }
+                        return coffee
+                    })
+            }
+        case(ActionTypes.DELETE_PRODUCT_BY_ID):
+            return {
+                ...state,
+                products: 
+                    state.products.filter(coffee => {
+                        console.log('verifica')
+                        return coffee.id != action.payload.id;
+                    })
+            }
+        case(ActionTypes.DELETE_ALL_PRODUCTS):
+            return {
+                ...state,
+                products: []
+            }
         default:
             return state
     }

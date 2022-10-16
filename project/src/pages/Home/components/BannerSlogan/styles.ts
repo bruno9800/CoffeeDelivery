@@ -1,7 +1,30 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { linearGradient, transparentize } from 'polished'
 
+
+const BannerAnimation = keyframes`
+    0% {
+        rotate: 0;
+    }
+
+    25% {
+        rotate: -0.5deg;
+    }
+
+    50% {
+        rotate: 0;
+    }
+
+    75% {
+        rotate: 0.5deg;
+    }
+
+    99% {
+        rotate: 0;
+    }
+
+`
 
 export const BannerContainer = styled.div`
     position: relative;
@@ -13,8 +36,14 @@ export const BannerContainer = styled.div`
             toDirection: 'to bottom',
         })};
     }
+
+    img {
+        animation: ${BannerAnimation} 2s linear infinite;
+    }
     
 `
+
+
 
 
 export const BannerContent = styled.div`
@@ -108,3 +137,5 @@ export const SkillItem = styled.div`
         color: ${props => props.theme["base-text"]};
     }
 `
+
+

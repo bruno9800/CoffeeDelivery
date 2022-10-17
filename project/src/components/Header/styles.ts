@@ -26,6 +26,7 @@ export const Content = styled.div`
         align-items: center;
 
         background: ${props => props.theme["purple-light"]};
+    
 
         color: ${props => props.theme["purple-dark"]};
         font-size: 0.875rem;

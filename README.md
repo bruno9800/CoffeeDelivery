@@ -18,7 +18,7 @@ Desafio Rocketseat trilha Ignite
 
 ### Home
 
-    ![Home1](./assets/home-01.jpg)
+    ![Home](assets/home-01.jgp)
 
     ![Home2](./assets/home-02.jpg)
 
